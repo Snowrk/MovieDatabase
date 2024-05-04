@@ -3,7 +3,7 @@ import {useLocation} from 'react-router-dom'
 import MovieDetails from '../MovieDetails'
 import NavBar from '../NavBar'
 import CardList from '../CardList'
-import API_KEY from '../../api'
+import apiKey from '../../api'
 import './index.css'
 
 function useQuery() {
@@ -15,33 +15,33 @@ function useQuery() {
 const Sample = props => {
   const query = useQuery()
   const [page, setPage] = useState(1)
-  const MOVIE_NAME = query.get('search')
+  const search = query.get('search')
   const [pageData, setPageData] = useState({})
   const {match, location} = props
   const {path, params} = match
   const {id} = params
   // console.log(id)
-  const MOVIE_ID = id !== undefined ? id : ''
+  const movieId = id !== undefined ? id : ''
   console.log(match)
   console.log(location)
-  console.log(MOVIE_NAME)
+  console.log(search)
   let url
   switch (path) {
     case '/':
-      url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
+      url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${page}`
       break
     case '/top-rated':
-      url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`
+      url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=${page}`
       break
     case '/upcoming':
-      url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${page}`
+      url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=${page}`
       break
     default:
-      url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
+      url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${page}`
       break
   }
-  if (MOVIE_NAME !== null) {
-    url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${MOVIE_NAME}&page=${page}`
+  if (search !== null) {
+    url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${search}&page=${page}`
   }
   useEffect(() => {
     const getData = async () => {
@@ -66,9 +66,9 @@ const Sample = props => {
   }
   return (
     <div className="bg-main">
-      <NavBar search={MOVIE_NAME} />
-      {MOVIE_ID.length > 0 ? (
-        <MovieDetails MOVIE_ID={MOVIE_ID} />
+      <NavBar search={search} />
+      {movieId.length > 0 ? (
+        <MovieDetails movieId={movieId} />
       ) : (
         <CardList pageData={pageData} setPage={setPage} />
       )}

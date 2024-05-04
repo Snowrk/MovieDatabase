@@ -1,6 +1,6 @@
 import {useState, useEffect, useRef} from 'react'
 import {IoIosStar} from 'react-icons/io'
-import API_KEY from '../../api'
+import apiKey from '../../api'
 
 import './index.css'
 
@@ -27,7 +27,7 @@ const CastCard = props => {
 }
 
 const MovieDetails = props => {
-  const {MOVIE_ID} = props
+  const {movieId} = props
   const [details, setDetails] = useState({})
   const [cast, setCast] = useState({})
   const bgImg = useRef(null)
@@ -41,19 +41,19 @@ const MovieDetails = props => {
       //       'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1YTI0MDEyZmZkNGY1OTgzOWE4Nzg4NDljYzhkOTJhZSIsInN1YiI6IjY2MzQ3NzNiZDlmNGE2MDEyM2UyZWY0YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mwFeMQnWwA91B6XUVevZguRuuMKPwcRZdVe7dtPkE6w',
       //   },
       // }
-      const url1 = `https://api.themoviedb.org/3/movie/${MOVIE_ID}?api_key=${API_KEY}&language=en-US`
+      const url1 = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`
       const response1 = await fetch(url1)
       const data1 = await response1.json()
       console.log(data1)
       setDetails(data1)
-      const url2 = `https://api.themoviedb.org/3/movie/${MOVIE_ID}/credits?api_key=${API_KEY}&language=en-US`
+      const url2 = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}&language=en-US`
       const response2 = await fetch(url2)
       const data2 = await response2.json()
       console.log(data2)
       setCast(data2)
     }
     getData()
-  }, [MOVIE_ID])
+  }, [movieId])
   useEffect(() => {
     if (bgImg.current !== null) {
       console.log(bgImg.current)

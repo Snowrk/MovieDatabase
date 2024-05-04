@@ -1,20 +1,22 @@
 import {Component} from 'react'
-import API_KEY from '../../api'
+import apiKey from '../../api'
 
-class Test1 extends Component{
-  state={}
+class Test1 extends Component {
+  state = {}
+
   componentDidMount() {
     const getData = async () => {
-      const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+      const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
       const response = await fetch(url)
       const data = await response.json()
-      setState({movies: data})
+      this.setState({movies: data})
       console.log(data)
     }
 
     getData()
   }
-  render(){
+
+  render() {
     return <p>Test</p>
   }
 }
