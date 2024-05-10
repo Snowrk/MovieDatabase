@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import './index.css'
 
 const NavBar = props => {
-  const {inp, setInp, initSearch, active, setActive} = props
+  const {inp, setInp, initSearch, active, setActive, setPage} = props
   // console.log(window.location.pathname)
   // const set = location => {
   //   if (inp.length > 0) {
@@ -22,7 +22,10 @@ const NavBar = props => {
                 type="button"
                 className="nav-btn"
                 data-active={active === '/'}
-                onClick={() => setActive('/')}
+                onClick={() => {
+                  setActive('/')
+                  setPage(1)
+                }}
               >
                 Popular
               </button>
@@ -34,7 +37,10 @@ const NavBar = props => {
                 type="button"
                 className="nav-btn"
                 data-active={active === '/top-rated'}
-                onClick={() => setActive('/top-rated')}
+                onClick={() => {
+                  setActive('/top-rated')
+                  setPage(1)
+                }}
               >
                 Top Rated
               </button>
@@ -46,7 +52,10 @@ const NavBar = props => {
                 type="button"
                 className="nav-btn"
                 data-active={active === '/upcoming'}
-                onClick={() => setActive('/upcoming')}
+                onClick={() => {
+                  setActive('/upcoming')
+                  setPage(1)
+                }}
               >
                 Upcoming
               </button>
@@ -62,7 +71,9 @@ const NavBar = props => {
           onChange={event => setInp(event.target.value)}
         />
 
-        <button onClick={initSearch}>Search</button>
+        <button type="button" onClick={initSearch}>
+          Search
+        </button>
       </form>
     </nav>
   )
