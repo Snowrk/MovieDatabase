@@ -1,0 +1,152 @@
+.details {
+  overflow-y: scroll;
+}
+
+.backdrop {
+  backdrop-filter: blur(30px);
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  max-width: 1000px;
+}
+
+.details-card {
+  display: flex;
+  padding: 2rem;
+  gap: 2rem;
+  /* backdrop-filter: blur(30px); */
+  color: white;
+  text-shadow: 1px 1px 5px black;
+}
+
+.blur-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.poster > img {
+  border-radius: 0.4rem;
+  box-shadow: 1px 1px 5px 0px black;
+  width: 300px;
+  height: 450px;
+}
+
+.genres {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.genres > li + li::before {
+  content: '•';
+  padding-inline: 0.5rem;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+}
+
+.tagline {
+  font-style: italic;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.bg-cast {
+  /* background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  ); */
+  /* background-image: linear-gradient(to top, #09203f 0%, #537895 100%); */
+  /* background-color: black; */
+}
+
+.cast-container {
+  /* backdrop-filter: blur(30px); */
+  padding: 2rem;
+  padding-top: 0;
+  color: white;
+}
+
+.cast-container > h1 {
+  color: white;
+  margin-top: 0;
+}
+
+.cast-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-around;
+}
+
+.cast-card {
+  border-radius: 0.4rem;
+  /* background-color: white; */
+  /* From https://css.glass */
+  /* background: rgba(255, 255, 255, 0.2); */
+  /* border-radius: 16px; */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  width: 138px;
+}
+
+.img-con {
+  width: 138px;
+  height: 175px;
+}
+
+.img-con > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cast-desc {
+  padding-inline: 0.5rem;
+  text-shadow: 1px 0px 2px black;
+  /* text-shadow: 0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #0fa, */
+}
+
+.cast-desc > p:first-child {
+  font-weight: bold;
+  margin-bottom: 0;
+  margin-top: 0.4rem;
+}
+
+.cast-desc > p:last-child {
+  margin-top: 0.2rem;
+  font-size: small;
+}
+
+@media (max-width: 768px) {
+  .details-card {
+    flex-direction: column;
+  }
+  .poster {
+    align-self: center;
+  }
+}
