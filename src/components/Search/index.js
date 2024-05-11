@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Audio } from "react-loader-spinner";
 import CardList from "../CardList";
@@ -30,9 +29,7 @@ const Search = () => {
       {isLoading ? (
         <Audio />
       ) : (
-        <Suspense>
-          <CardList pageData={pageData} setPage={setPage} />
-        </Suspense>
+        <CardList pageData={pageData} setPage={setPage} />
       )}
     </>
   );

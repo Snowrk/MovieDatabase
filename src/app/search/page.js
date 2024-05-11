@@ -1,5 +1,10 @@
 'use client'
 
+import { Suspense } from "react";
 import Search from "../../components/Search"
 
-export default Search
+export default function page = () => (
+    <Suspense>
+        <Search/>
+    </Suspense>
+)
