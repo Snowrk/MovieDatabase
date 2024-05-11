@@ -1,12 +1,11 @@
 import {useEffect, useState} from 'react'
-import Loader from 'react-loader-spinner'
+import {Audio} from 'react-loader-spinner'
 import CardList from '../CardList'
-import apiKey from '../../api'
+import apiKey from '../api'
 import './index.css'
 
-const Home = props => {
-  // const [page, setPage] = useState(1)
-  const {page} = props
+const Home = () => {
+  const [page, setPage] = useState(1)
   const [isLoading, setIsLoading] = useState(true)
   const [pageData, setPageData] = useState({})
 
@@ -22,7 +21,7 @@ const Home = props => {
 
     getData()
   }, [page])
-  return <>{isLoading ? <Loader /> : <CardList pageData={pageData} />}</>
+  return <>{isLoading ? <Audio /> : <CardList pageData={pageData} setPage={setPage} />}</>
 }
 
 export default Home
