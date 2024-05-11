@@ -75,7 +75,6 @@
 
 * {
   box-sizing: border-box;
-  
 }
 
 html,
@@ -87,7 +86,7 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* color: rgb(var(--foreground-rgb)); */
   background: linear-gradient(
       to bottom,
       transparent,
@@ -101,8 +100,16 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+.bg-main {
+  background-image: linear-gradient(to top, #209cff 0%, #68e0cf 100%);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-}
+} */

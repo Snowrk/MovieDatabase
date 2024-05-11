@@ -1,4 +1,4 @@
-import './index.css'
+import "./index.css";
 
 // const Pagination = props => {
 //   const {page, setPage} = props
@@ -31,19 +31,19 @@ import './index.css'
 //   )
 // }
 
-const Pagination = props => {
-  const {pageObj, setPage} = props
-  const {startPage, lastPage, prevPage, nextPage, currentPage} = pageObj
+const Pagination = (props) => {
+  const { pageObj, setPage } = props;
+  const { startPage, lastPage, prevPage, nextPage, currentPage } = pageObj;
   return (
     <ul className="pagination">
       <li>
         <button
           className="nav-next-prev"
-          onClick={() => setPage(prev => (prev > 1 ? prev - 1 : prev))}
+          onClick={() => setPage((prev) => (prev > 1 ? prev - 1 : prev))}
           disabled={prevPage <= 0}
           type="button"
         >
-          {'<'}
+          {"< Prev"}
         </button>
       </li>
       {currentPage !== startPage && (
@@ -100,15 +100,15 @@ const Pagination = props => {
       <li>
         <button
           className="nav-next-prev"
-          onClick={() => setPage(prev => prev + 1)}
+          onClick={() => setPage((prev) => prev + 1)}
           disabled={nextPage > lastPage}
           type="button"
         >
-          {'>'}
+          {"Next >"}
         </button>
       </li>
     </ul>
-  )
-}
+  );
+};
 
-export default Pagination
+export default Pagination;
