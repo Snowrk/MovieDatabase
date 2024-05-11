@@ -1,6 +1,7 @@
 import {useState, useEffect, useRef} from 'react'
-import Loader from 'react-loader-spinner'
-import apiKey from '../../api'
+import { usePathname } from 'next/navigation'
+import {Audio} from 'react-loader-spinner'
+import apiKey from '../api'
 
 import './index.css'
 
@@ -21,11 +22,10 @@ const CastCard = props => {
   )
 }
 
-const MovieDetails = props => {
-  const {match} = props
-  const {params} = match
-  const {id} = params
-  const movieId = id
+const MovieDetails = () => {
+  const pathname = usePathname()
+  console.log(pathname.slice(pathname.lastIndexOf('/')+1,))
+  const movieId = pathname.slice(pathname.lastIndexOf('/')+1,)
   const [details, setDetails] = useState({})
   const [cast, setCast] = useState({})
   const [isLoading, setIsLoading] = useState(true)
@@ -69,7 +69,7 @@ const MovieDetails = props => {
   return (
     <>
       {isLoading ? (
-        <Loader />
+        <Audio />
       ) : (
         <div className="details blur-img" ref={bgImg}>
           <div className="backdrop">
@@ -111,12 +111,12 @@ const MovieDetails = props => {
                   <h1>Cast</h1>
                   <ul className="cast-list">
                     {cast.cast?.map(item => (
-                      <CastCard
+                      item.profile_path !== null?(<CastCard
                         key={item.cast_id}
                         name={item.original_name}
                         character={item.character}
                         profilePath={item.profile_path}
-                      />
+                      />):null
                     ))}
                   </ul>
                 </div>

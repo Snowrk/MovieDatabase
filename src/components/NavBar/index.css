@@ -3,6 +3,8 @@
   padding: 1rem;
   display: flex;
   align-items: center;
+
+  z-index: 1;
 }
 
 .nav > h1 {
@@ -33,7 +35,7 @@
   background-color: transparent;
 }
 
-.nav-btn[data-active='true'] {
+.nav-btn[data-active="true"] {
   border-bottom: 1px solid red;
 }
 
@@ -53,7 +55,7 @@
   outline: none;
 }
 
-.search > button {
+.search > .link > button {
   border: none;
   background-color: transparent;
   outline: none;

@@ -1,39 +1,21 @@
 {
-  "name": "app-name",
+  "name": "nextmoviedb",
+  "version": "0.1.0",
   "private": true,
-  "version": "1.0.0",
-  "engines": {
-    "node": "v20.x",
-    "npm": ">=10"
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
+    "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "react-loader-spinner": "4.0.0",
-    "react-router-dom": "5.3.0"
+    "react-loader-spinner": "^6.1.6"
   },
   "devDependencies": {
-    "husky": "4.3.8",
-    "npm-run-all": "4.1.5",
-    "react-scripts": "4.0.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "run-all": "npm-run-all --parallel test"
-  },
-  "browserslist": {
-    "development": [
-      "last 2 chrome versions",
-      "last 2 firefox versions",
-      "last 2 edge versions"
-    ],
-    "production": [
-      ">1%",
-      "last 4 versions",
-      "Firefox ESR",
-      "not ie < 11"
-    ]
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3"
   }
 }

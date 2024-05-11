@@ -1,61 +1,46 @@
-import {Link} from 'react-router-dom'
+import {useState} from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import './index.css'
 
-const NavBar = props => {
-  const {inp, setInp, initSearch, active, setActive, setPage} = props
-  // console.log(window.location.pathname)
-  // const set = location => {
-  //   if (inp.length > 0) {
-  //     return '/search'
-  //   }
-  //   return `${location.pathname}`
-  // }
+const NavBar = () => {
+  const [inp, setInp] = useState('')
+  const pathname = usePathname()
+  const path = inp.length>0?`/search?query=${inp}`:pathname
 
   return (
     <nav className="nav">
       <h1>movieDB</h1>
       <div>
         <ul className="nav-list">
-          <Link to="/" className="link">
+          <Link href="/" className="link">
             <li>
               <button
                 type="button"
                 className="nav-btn"
-                data-active={active === '/'}
-                onClick={() => {
-                  setActive('/')
-                  setPage(1)
-                }}
+                data-active={pathname === '/'}
               >
                 Popular
               </button>
             </li>
           </Link>
-          <Link to="/top-rated" className="link">
+          <Link href="/top-rated" className="link">
             <li>
               <button
                 type="button"
                 className="nav-btn"
-                data-active={active === '/top-rated'}
-                onClick={() => {
-                  setActive('/top-rated')
-                  setPage(1)
-                }}
+                data-active={pathname === '/top-rated'}
               >
                 Top Rated
               </button>
             </li>
           </Link>
-          <Link to="/upcoming" className="link">
+          <Link href="/upcoming" className="link">
             <li>
               <button
                 type="button"
                 className="nav-btn"
-                data-active={active === '/upcoming'}
-                onClick={() => {
-                  setActive('/upcoming')
-                  setPage(1)
-                }}
+                data-active={pathname === '/upcoming'}
               >
                 Upcoming
               </button>
@@ -65,15 +50,16 @@ const NavBar = props => {
       </div>
       <form className="search">
         <input
-          type="text"
+          type="search"
           value={inp}
           placeholder="Search"
           onChange={event => setInp(event.target.value)}
         />
-
-        <button type="button" onClick={initSearch}>
+        <Link href={path} className='link'>
+        <button type="button">
           Search
         </button>
+        </Link>
       </form>
     </nav>
   )
