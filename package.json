@@ -3,13 +3,10 @@
   "private": true,
   "version": "1.0.0",
   "engines": {
-    "node": "^10.13 || 12 || 14 || 15",
-    "npm": ">=6"
+    "node": "v20.x",
+    "npm": ">=10"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "5.11.9",
-    "@testing-library/react": "11.2.5",
-    "@testing-library/user-event": "12.6.2",
     "chalk": "4.1.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
